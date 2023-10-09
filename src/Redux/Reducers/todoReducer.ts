@@ -1,4 +1,4 @@
-import { CREATE_TODO, UPDATE_TODO, DELETE_TODO } from "../Actions";
+import { CREATE_TODO, UPDATE_TODO, DELETE_TODO, DELETE_ALL_TODO } from "../Actions";
 import { initialState } from "./initialState";
 
 interface actionType {
@@ -28,6 +28,12 @@ const todoReducer = (state = initialState, action: actionType) => {
       return Object.assign({}, state, {
         todo: state.todo.filter((todo) => todo.id !== action.payload.id),
       });
+    case DELETE_ALL_TODO:
+      return Object.assign({}, state, {
+        todo: [],
+      });
+    default:
+      return state;
   }
 };
 

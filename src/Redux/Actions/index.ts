@@ -1,6 +1,7 @@
 export const CREATE_TODO = "ADD_TODO";
 export const UPDATE_TODO = "UPDATE_TODO";
 export const DELETE_TODO = "DELETE_TODO";
+export const DELETE_ALL_TODO = "DELETE_ALL_TODO";
 
 export const createTodo = (id: number, content: string) => {
   return {
@@ -31,5 +32,11 @@ export const deleteTodo = (id: number) => {
     payload: {
       id: id,
     },
+  };
+};
+
+export const deleteAllTodo = () => {
+  return {
+    type: DELETE_ALL_TODO,
   };
 };
